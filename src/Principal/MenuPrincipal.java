@@ -20,6 +20,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         
         this.setVisible(true);
     }
+    int opc;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -46,7 +47,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenuItem2.setText("jMenuItem2");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Adidas® Sistema de Ventas");
         setAlwaysOnTop(true);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -54,6 +55,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setName("Frame Principal"); // NOI18N
         setPreferredSize(new java.awt.Dimension(800, 700));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         AdidasLogo.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         AdidasLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/AdidasPNG.png"))); // NOI18N
@@ -207,11 +213,24 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void mnuSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSalirActionPerformed
         // TODO add your handling code here:
-        int opc=0;
-        opc=JOptionPane.showConfirmDialog(this,"salir","salirD",
+        opc=JOptionPane.showConfirmDialog(this,"Desea Salir de la Aplicacion","Salir..",
                 JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+        if(opc==JOptionPane.YES_OPTION)
+        {
+            System.exit(0);
+        }
         
     }//GEN-LAST:event_mnuSalirActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        opc=JOptionPane.showConfirmDialog(this,"Desea salir de la Aplicacion","Salir...",
+                JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+        if(opc==JOptionPane.YES_OPTION)
+        {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

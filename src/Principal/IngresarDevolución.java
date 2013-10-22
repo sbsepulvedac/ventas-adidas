@@ -4,6 +4,8 @@
  */
 package Principal;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author HP Pavilion G4
@@ -15,7 +17,9 @@ public class IngresarDevolución extends javax.swing.JFrame {
      */
     public IngresarDevolución() {
         initComponents();
+        int opc;
     }
+    int opc;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,30 +32,33 @@ public class IngresarDevolución extends javax.swing.JFrame {
 
         Logo = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        jtxtCodigo = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jtxaComentario = new javax.swing.JTextArea();
         btnVenta = new javax.swing.JButton();
         btnVenta1 = new javax.swing.JButton();
         mnuBarraMenu = new javax.swing.JMenuBar();
         mnuArchivo = new javax.swing.JMenu();
-        mnuIngresarVenta = new javax.swing.JMenuItem();
-        mnuIngresarDevolucion = new javax.swing.JMenuItem();
         mnuSalir = new javax.swing.JMenuItem();
         mnuAyuda = new javax.swing.JMenu();
         mnuAcercaDe = new javax.swing.JMenuItem();
         mnuActualizaciones = new javax.swing.JMenuItem();
         mnuSoporte = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Adidas® Sistema de Ventas - Ingresar Devolución");
         setAlwaysOnTop(true);
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         Logo.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/AdidasPNGMediano.png"))); // NOI18N
@@ -59,7 +66,17 @@ public class IngresarDevolución extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jLabel5.setText("Código");
 
-        jTextField7.setText(" ");
+        jtxtCodigo.setText(" ");
+        jtxtCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxtCodigoActionPerformed(evt);
+            }
+        });
+        jtxtCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtxtCodigoKeyTyped(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jLabel1.setText("Producto");
@@ -76,9 +93,14 @@ public class IngresarDevolución extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jLabel9.setText("Comentario");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jtxaComentario.setColumns(20);
+        jtxaComentario.setRows(5);
+        jtxaComentario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtxaComentarioKeyTyped(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jtxaComentario);
 
         btnVenta.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         btnVenta.setText("Registrar");
@@ -99,32 +121,15 @@ public class IngresarDevolución extends javax.swing.JFrame {
         mnuArchivo.setText("Archivo");
         mnuArchivo.setFont(new java.awt.Font("Calibri", 0, 15)); // NOI18N
 
-        mnuIngresarVenta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_MASK));
-        mnuIngresarVenta.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        mnuIngresarVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/AdidasIcono.png"))); // NOI18N
-        mnuIngresarVenta.setText("Ingresar Venta");
-        mnuIngresarVenta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuIngresarVentaActionPerformed(evt);
-            }
-        });
-        mnuArchivo.add(mnuIngresarVenta);
-
-        mnuIngresarDevolucion.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
-        mnuIngresarDevolucion.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        mnuIngresarDevolucion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/AdidasIcono.png"))); // NOI18N
-        mnuIngresarDevolucion.setText("Ingresar Devolución");
-        mnuIngresarDevolucion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuIngresarDevolucionActionPerformed(evt);
-            }
-        });
-        mnuArchivo.add(mnuIngresarDevolucion);
-
         mnuSalir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         mnuSalir.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         mnuSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/AdidasIcono.png"))); // NOI18N
         mnuSalir.setText("Salir");
+        mnuSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuSalirActionPerformed(evt);
+            }
+        });
         mnuArchivo.add(mnuSalir);
 
         mnuBarraMenu.add(mnuArchivo);
@@ -178,7 +183,7 @@ public class IngresarDevolución extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jtxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel1)
                                 .addGap(18, 18, 18)
@@ -197,7 +202,7 @@ public class IngresarDevolución extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -219,28 +224,82 @@ public class IngresarDevolución extends javax.swing.JFrame {
         setBounds((screenSize.width-564)/2, (screenSize.height-521)/2, 564, 521);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void mnuIngresarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuIngresarVentaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mnuIngresarVentaActionPerformed
-
-    private void mnuIngresarDevolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuIngresarDevolucionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mnuIngresarDevolucionActionPerformed
-
     private void mnuAcercaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuAcercaDeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_mnuAcercaDeActionPerformed
 
     private void btnVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentaActionPerformed
         // TODO add your handling code here:
+        
+        if(this.jtxtCodigo.getText().trim().isEmpty())
+        {
+            JOptionPane.showMessageDialog(this,"No se a ingresado el codigo","Error",JOptionPane.ERROR_MESSAGE);
+            this.jtxtCodigo.requestFocus();
+            return;
+        }
+        
+        if(this.jtxaComentario.getText().trim().isEmpty())
+        {
+            JOptionPane.showMessageDialog(this,"No se a ingresado Comentario","Error",JOptionPane.ERROR_MESSAGE);
+            this.jtxaComentario.requestFocus();
+            return;
+        }
     }//GEN-LAST:event_btnVentaActionPerformed
 
     private void btnVenta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenta1ActionPerformed
         // TODO add your handling code here:
-        MenuPrincipal mp = new MenuPrincipal();
-        mp.setVisible(true);
-        this.setVisible(false);
+        opc=JOptionPane.showConfirmDialog(this, "Los cambios no se guardaran Automaticamente,\n¿Desea continuar?","Salir...",
+                JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+        if (opc==JOptionPane.YES_OPTION)
+        {
+           MenuPrincipal mp = new MenuPrincipal();
+           mp.setVisible(true);
+           this.setVisible(false);
+        }
+        
     }//GEN-LAST:event_btnVenta1ActionPerformed
+
+    private void jtxtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtCodigoActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jtxtCodigoActionPerformed
+
+    private void jtxtCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtCodigoKeyTyped
+        // TODO add your handling code here:
+        if(this.jtxtCodigo.getText().trim().length()>9)
+        {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtxtCodigoKeyTyped
+
+    private void mnuSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSalirActionPerformed
+        // TODO add your handling code here:
+        opc=JOptionPane.showConfirmDialog(this, "Desea salir de la Aplicacion","Salir...",
+                JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+        if (opc==JOptionPane.YES_OPTION)
+        {
+            System.exit(0);
+        }
+                
+    }//GEN-LAST:event_mnuSalirActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        opc=JOptionPane.showConfirmDialog(this, "Desea salir de la Aplicacion","Salir...",
+                JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+        if (opc==JOptionPane.YES_OPTION)
+        {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_formWindowClosing
+
+    private void jtxaComentarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxaComentarioKeyTyped
+        // TODO add your handling code here:
+        if(this.jtxaComentario.getText().trim().length()>149)
+        {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtxaComentarioKeyTyped
 
     /**
      * @param args the command line arguments
@@ -253,7 +312,7 @@ public class IngresarDevolución extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -285,17 +344,15 @@ public class IngresarDevolución extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextArea jtxaComentario;
+    private javax.swing.JTextField jtxtCodigo;
     private javax.swing.JMenuItem mnuAcercaDe;
     private javax.swing.JMenuItem mnuActualizaciones;
     private javax.swing.JMenu mnuArchivo;
     private javax.swing.JMenu mnuAyuda;
     private javax.swing.JMenuBar mnuBarraMenu;
-    private javax.swing.JMenuItem mnuIngresarDevolucion;
-    private javax.swing.JMenuItem mnuIngresarVenta;
     private javax.swing.JMenuItem mnuSalir;
     private javax.swing.JMenuItem mnuSoporte;
     // End of variables declaration//GEN-END:variables
