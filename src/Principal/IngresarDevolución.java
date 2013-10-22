@@ -215,7 +215,8 @@ public class IngresarDevolución extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pack();
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-564)/2, (screenSize.height-521)/2, 564, 521);
     }// </editor-fold>//GEN-END:initComponents
 
     private void mnuIngresarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuIngresarVentaActionPerformed
@@ -236,6 +237,9 @@ public class IngresarDevolución extends javax.swing.JFrame {
 
     private void btnVenta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenta1ActionPerformed
         // TODO add your handling code here:
+        MenuPrincipal mp = new MenuPrincipal();
+        mp.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnVenta1ActionPerformed
 
     /**

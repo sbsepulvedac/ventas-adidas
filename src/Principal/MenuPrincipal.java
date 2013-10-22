@@ -4,6 +4,8 @@
  */
 package Principal;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Administrador
@@ -15,6 +17,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
      */
     public MenuPrincipal() {
         initComponents();
+        
+        this.setVisible(true);
     }
 
     /**
@@ -42,7 +46,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenuItem2.setText("jMenuItem2");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Adidas® Sistema de Ventas");
         setAlwaysOnTop(true);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -99,6 +103,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         mnuSalir.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         mnuSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/AdidasIcono.png"))); // NOI18N
         mnuSalir.setText("Salir");
+        mnuSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuSalirActionPerformed(evt);
+            }
+        });
         mnuArchivo.add(mnuSalir);
 
         mnuBarraMenu.add(mnuArchivo);
@@ -160,28 +169,49 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGap(40, 40, 40))
         );
 
-        pack();
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-836)/2, (screenSize.height-537)/2, 836, 537);
     }// </editor-fold>//GEN-END:initComponents
 
     private void mnuIngresarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuIngresarVentaActionPerformed
         // TODO add your handling code here:
+        IngresarVenta iv = new IngresarVenta();
+        iv.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_mnuIngresarVentaActionPerformed
 
     private void mnuIngresarDevolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuIngresarDevolucionActionPerformed
         // TODO add your handling code here:
+        IngresarDevolución id = new IngresarDevolución();
+        id.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_mnuIngresarDevolucionActionPerformed
 
     private void btnDevolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDevolucionActionPerformed
         // TODO add your handling code here:
+        IngresarDevolución id = new IngresarDevolución();
+        id.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnDevolucionActionPerformed
 
     private void btnVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentaActionPerformed
         // TODO add your handling code here:
+        IngresarVenta iv = new IngresarVenta();
+        iv.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnVentaActionPerformed
 
     private void mnuAcercaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuAcercaDeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_mnuAcercaDeActionPerformed
+
+    private void mnuSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSalirActionPerformed
+        // TODO add your handling code here:
+        int opc=0;
+        opc=JOptionPane.showConfirmDialog(this,"salir","salirD",
+                JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+        
+    }//GEN-LAST:event_mnuSalirActionPerformed
 
     /**
      * @param args the command line arguments
