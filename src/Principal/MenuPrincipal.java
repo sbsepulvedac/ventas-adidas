@@ -175,8 +175,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGap(40, 40, 40))
         );
 
-        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-836)/2, (screenSize.height-537)/2, 836, 537);
+        setSize(new java.awt.Dimension(836, 537));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void mnuIngresarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuIngresarVentaActionPerformed
