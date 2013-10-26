@@ -176,6 +176,7 @@ public class IngresarVenta extends javax.swing.JFrame {
             }
         });
 
+        txtDetalle.setEditable(false);
         txtDetalle.setColumns(20);
         txtDetalle.setRows(5);
         jScrollPane1.setViewportView(txtDetalle);
@@ -340,7 +341,7 @@ public class IngresarVenta extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel8)
@@ -369,8 +370,8 @@ public class IngresarVenta extends javax.swing.JFrame {
                 .addGap(15, 15, 15))
         );
 
-        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-551)/2, (screenSize.height-658)/2, 551, 658);
+        setSize(new java.awt.Dimension(551, 658));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void mnuIngresarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuIngresarVentaActionPerformed
