@@ -35,15 +35,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenuItem2 = new javax.swing.JMenuItem();
         AdidasLogo = new javax.swing.JLabel();
-        btnDevolucion = new javax.swing.JButton();
-        btnVenta = new javax.swing.JButton();
+        btnIngDevolucion = new javax.swing.JButton();
+        btnIngVenta = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnCerrarSesion = new javax.swing.JButton();
         lblNombre = new javax.swing.JLabel();
+        btnIngVendedor = new javax.swing.JButton();
+        btnIngCliente = new javax.swing.JButton();
         mnuBarraMenu = new javax.swing.JMenuBar();
         mnuArchivo = new javax.swing.JMenu();
         mnuIngresarVenta = new javax.swing.JMenuItem();
         mnuIngresarDevolucion = new javax.swing.JMenuItem();
+        mnuIngresarCliente = new javax.swing.JMenuItem();
+        mnuIngresarVendedor = new javax.swing.JMenuItem();
         mnuSalir = new javax.swing.JMenuItem();
         mnuAyuda = new javax.swing.JMenu();
         mnuAcercaDe = new javax.swing.JMenuItem();
@@ -68,19 +72,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
         AdidasLogo.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         AdidasLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/AdidasPNG.png"))); // NOI18N
 
-        btnDevolucion.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        btnDevolucion.setText("Ingresar Devolución");
-        btnDevolucion.addActionListener(new java.awt.event.ActionListener() {
+        btnIngDevolucion.setFont(new java.awt.Font("Calibri", 1, 22)); // NOI18N
+        btnIngDevolucion.setText("Ingresar Devolución");
+        btnIngDevolucion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDevolucionActionPerformed(evt);
+                btnIngDevolucionActionPerformed(evt);
             }
         });
 
-        btnVenta.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        btnVenta.setText("Ingresar Venta");
-        btnVenta.addActionListener(new java.awt.event.ActionListener() {
+        btnIngVenta.setFont(new java.awt.Font("Calibri", 1, 22)); // NOI18N
+        btnIngVenta.setText("Ingresar Venta");
+        btnIngVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVentaActionPerformed(evt);
+                btnIngVentaActionPerformed(evt);
             }
         });
 
@@ -97,6 +101,22 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         lblNombre.setFont(new java.awt.Font("Calibri", 1, 11)); // NOI18N
         lblNombre.setText("???");
+
+        btnIngVendedor.setFont(new java.awt.Font("Calibri", 1, 22)); // NOI18N
+        btnIngVendedor.setText("Ingresar Vendedor");
+        btnIngVendedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngVendedorActionPerformed(evt);
+            }
+        });
+
+        btnIngCliente.setFont(new java.awt.Font("Calibri", 1, 22)); // NOI18N
+        btnIngCliente.setText("Ingresar Cliente");
+        btnIngCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngClienteActionPerformed(evt);
+            }
+        });
 
         mnuArchivo.setText("Archivo");
         mnuArchivo.setFont(new java.awt.Font("Calibri", 0, 15)); // NOI18N
@@ -122,6 +142,28 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
         mnuArchivo.add(mnuIngresarDevolucion);
+
+        mnuIngresarCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        mnuIngresarCliente.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        mnuIngresarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/AdidasIcono.png"))); // NOI18N
+        mnuIngresarCliente.setText("Ingresar Cliente");
+        mnuIngresarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuIngresarClienteActionPerformed(evt);
+            }
+        });
+        mnuArchivo.add(mnuIngresarCliente);
+
+        mnuIngresarVendedor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
+        mnuIngresarVendedor.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        mnuIngresarVendedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imágenes/AdidasIcono.png"))); // NOI18N
+        mnuIngresarVendedor.setText("Ingresar Vendedor");
+        mnuIngresarVendedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuIngresarVendedorActionPerformed(evt);
+            }
+        });
+        mnuArchivo.add(mnuIngresarVendedor);
 
         mnuSalir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         mnuSalir.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
@@ -171,45 +213,52 @@ public class MenuPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addComponent(btnVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnDevolucion)
-                .addGap(99, 99, 99))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(556, 556, 556)
-                        .addComponent(btnCerrarSesion))
-                    .addComponent(AdidasLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 788, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(22, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(AdidasLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 788, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnIngCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnIngVendedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(204, 204, 204)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnIngDevolucion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnIngVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCerrarSesion)
+                .addGap(31, 31, 31))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(lblNombre)
+                    .addComponent(btnCerrarSesion))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AdidasLogo)
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnIngCliente)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(lblNombre))
-                        .addGap(12, 12, 12))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnCerrarSesion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addComponent(AdidasLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDevolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40))
+                            .addComponent(btnIngVendedor)
+                            .addComponent(btnIngDevolucion)))
+                    .addComponent(btnIngVenta))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(836, 537));
+        setSize(new java.awt.Dimension(814, 573));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -232,23 +281,23 @@ public class MenuPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_mnuIngresarDevolucionActionPerformed
 
-    private void btnDevolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDevolucionActionPerformed
+    private void btnIngDevolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngDevolucionActionPerformed
         // TODO add your handling code here:
        
         IngresarDevolución id = new IngresarDevolución();
         id.setVisible(true);
         this.setVisible(false);
        
-    }//GEN-LAST:event_btnDevolucionActionPerformed
+    }//GEN-LAST:event_btnIngDevolucionActionPerformed
 
-    private void btnVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentaActionPerformed
+    private void btnIngVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngVentaActionPerformed
         // TODO add your handling code here:
        
         IngresarVenta iv = new IngresarVenta();
         iv.setVisible(true);
         this.setVisible(false);
       
-    }//GEN-LAST:event_btnVentaActionPerformed
+    }//GEN-LAST:event_btnIngVentaActionPerformed
 
     private void mnuAcercaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuAcercaDeActionPerformed
         // TODO add your handling code here:
@@ -256,7 +305,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void mnuSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSalirActionPerformed
         // TODO add your handling code here:
-        opc=JOptionPane.showConfirmDialog(this,"Desea Salir de la Aplicacion","Salir..",
+        opc=JOptionPane.showConfirmDialog(this,"¿Desea salir de la aplicación?","Salir..",
                 JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
         if(opc==JOptionPane.YES_OPTION)
         {
@@ -267,7 +316,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
-        opc=JOptionPane.showConfirmDialog(this,"Desea salir de la Aplicacion","Salir...",
+        opc=JOptionPane.showConfirmDialog(this,"¿Desea salir de la aplicación?","Salir...",
                 JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
         if(opc==JOptionPane.YES_OPTION)
         {
@@ -277,8 +326,36 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
         // TODO add your handling code here:
+        IniciarSesion inse = new IniciarSesion(this, true);
+        this.setVisible(false);
+        inse.setVisible(true);
+        
         
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
+
+    private void btnIngVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngVendedorActionPerformed
+          IngresarVendedor inven = new IngresarVendedor();
+        this.setVisible(false);
+        inven.setVisible(true);
+    }//GEN-LAST:event_btnIngVendedorActionPerformed
+
+    private void btnIngClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngClienteActionPerformed
+        IngresarCliente incli = new IngresarCliente();
+        this.setVisible(false);
+        incli.setVisible(true);
+    }//GEN-LAST:event_btnIngClienteActionPerformed
+
+    private void mnuIngresarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuIngresarClienteActionPerformed
+        IngresarCliente incli = new IngresarCliente();
+        this.setVisible(false);
+        incli.setVisible(true);
+    }//GEN-LAST:event_mnuIngresarClienteActionPerformed
+
+    private void mnuIngresarVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuIngresarVendedorActionPerformed
+         IngresarVendedor inven = new IngresarVendedor();
+        this.setVisible(false);
+        inven.setVisible(true);
+    }//GEN-LAST:event_mnuIngresarVendedorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -317,8 +394,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AdidasLogo;
     private javax.swing.JButton btnCerrarSesion;
-    private javax.swing.JButton btnDevolucion;
-    private javax.swing.JButton btnVenta;
+    private javax.swing.JButton btnIngCliente;
+    private javax.swing.JButton btnIngDevolucion;
+    private javax.swing.JButton btnIngVendedor;
+    private javax.swing.JButton btnIngVenta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JLabel lblNombre;
@@ -327,7 +406,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu mnuArchivo;
     private javax.swing.JMenu mnuAyuda;
     private javax.swing.JMenuBar mnuBarraMenu;
+    private javax.swing.JMenuItem mnuIngresarCliente;
     private javax.swing.JMenuItem mnuIngresarDevolucion;
+    private javax.swing.JMenuItem mnuIngresarVendedor;
     private javax.swing.JMenuItem mnuIngresarVenta;
     private javax.swing.JMenuItem mnuSalir;
     private javax.swing.JMenuItem mnuSoporte;
